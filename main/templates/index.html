@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {%load static%}
+    <title>Lin - The Linear Equations solver</title>
+    <meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0">
+    <meta name="theme-color" content="#49b86a"/>
+    <link rel="stylesheet" href="{%static 'bulma-0.9.0/css/bulma.min.css'%}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{%static 'iconfont/material-icons.css'%}" type="text/css" media="all" />
+    <link rel="stylesheet" href="{%static 'style.css'%}" type="text/css" media="all" />
+    <script src="{%static 'eruda.min.js'%}"></script>
+  </head>
+  <body>
+    {%csrf_token%}
+    <script>eruda.init();</script>
+    <div id="body">
+      <div id="help" class="is-small tea-text"><i class="material-icons">help_outline</i></div>
+      <header>
+        <span class="niconne green-text whitse-text"><h4>Lin</h4></span>
+        <p class="niconne green-text whitbe-text"> The Linear Equations solver</p>
+      </header>
+      <div class="container">
+        <div class="block sserif">
+          <br/>
+          <h4 class="blue-grey-text">Equations:</h4>
+          <br>
+        </div>
+      </div>
+      <div class="container" id="equations-block">
+        <equation-input v-for="i in eqncount" :eqid="i"></equation-input>
+        <!--<equation-input></equation-input>
+        <equation-input></equation-input>
+        <equation-input></equation-input>-->
+        <br/>
+        <div class="block">
+          <button id="clear-all" class="button white-text is-danger is-filled" @click="wipe()"><i class="material-icons small">close</i>Clear all</button>
+        </div>
+      </div>
+      <bottom-sheet :res="results" :error="error" hidden></bottom-sheet>
+      <fixed-footer></fixed-footer>
+    </div>
+    
+    <script src="{%static 'vue/dist/vue.js'%}" type="text/javascript" charset="utf-8"></script>
+    <!--Components-->
+    <script src="{%static 'components/EquationInput.js'%}"></script>
+    <script src="{%static 'components/FixedFooter.js'%}"></script>
+    <script src="{%static 'components/BottomSheet.js'%}"></script>
+    <!---->
+    <script src="{%static 'main.js'%}"></script>
+    
+  </body>
+</html>
