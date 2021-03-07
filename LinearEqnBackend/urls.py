@@ -18,7 +18,7 @@ from django.urls import path
 from main.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('api/results', computeResults),
-    path('', mainpage)
+    path('', mainpage),
+    path('/',mainpage)
 ]
