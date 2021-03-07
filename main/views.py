@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import JsonResponse, HttpResponse
+from django.http import JsonResponse, HttpResponse, FileResponse
 from django.views.decorators.csrf import ensure_csrf_cookie
 
 import json
@@ -8,6 +8,9 @@ from .solver import *
 def mainpage(request):
   return render(request, 'index.html')
 
+def favicon(request):
+  return FileResponse(open('../staticfiles/Linicon.jpg', 'rb'))
+  
 @ensure_csrf_cookie
 def computeResults(request):
   if not request.headers.get('X-Requested-With') == 'XMLHttpRequest':

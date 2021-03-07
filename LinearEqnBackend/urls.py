@@ -20,5 +20,6 @@ from main.views import *
 urlpatterns = [
     path('api/results', computeResults),
     path('', mainpage),
-    path('/',mainpage)
+    path('/',mainpage),
+    path('/favicon.ico', favicon)
 ]
