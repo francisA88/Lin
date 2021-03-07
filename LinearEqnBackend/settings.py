@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = ')kx&7eap9mzg+oww!2jzs#&66h&@zb#d7$vgf-=*16o$&3no_-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'linear-equations-solver.herokuapp.com']
 
