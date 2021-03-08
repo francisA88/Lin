@@ -85,7 +85,7 @@ function initializeRemoveButtons() {
         return;
       }
       document.querySelector("#equations-block").removeChild(el);
-      console.log(vm.eqncount)
+      //console.log(vm.eqncount)
     };
   });
 }
