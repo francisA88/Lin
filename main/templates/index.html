@@ -14,7 +14,7 @@
   <body>
     {%csrf_token%}
     <script>eruda.init();</script>
-    <div id="help-panel-bg" :class="{hidden:showHelp}">
+    <div id="help-panel-bg" class="hidden">
       <div>
         <button class="button is-danger is-circle" @click='hideHelp()'><i class="material-icons">close</i></button>
         <div class="container">
