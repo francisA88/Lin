@@ -11,7 +11,6 @@ var vm = new Vue({
       results: {
       },
       error: "",
-      showHelp: false,
     }
   },
   methods: {
