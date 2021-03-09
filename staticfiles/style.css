@@ -246,6 +246,7 @@ header::before{
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 #help-panel-bg > div{
   width: 90%;
