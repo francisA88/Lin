@@ -16,7 +16,7 @@
     <script>eruda.init();</script>
     <div id="help-panel-bg" v-if="showHelp">
       <div>
-        <button class="button is-danger is-circle" @click='showHelp^=1'><i class="material-icons">close</i></button>
+        <button class="button is-danger is-circle" @click='showHelp=!showHelp'><i class="material-icons">close</i></button>
         <div class="container">
           <h4 class="blue-grey-text">About</h4>
           <div>
@@ -25,20 +25,22 @@
               This is a linear equation solver app. How to use? Quite easy. On loading this page, two equation fields have been provided for you already. Two fields are the minimum number of fields you can have. This app is capable of solving a large number of system linear equations (although it'll obviously take more time for larger inputs).
               
               Once you're done filling the fields, click '=' on the footer to display the results.
-              <b><u>NOTE:</u></b>
+              <p><b><u>NOTE:</u></b>
+              </p>
               <ul>
                 <li>Empty fields are not tolerated. Please remove all empty fields if this is to work smoothly.</li>
                 <li>Does not automatically simplify any of the expressions nor does it collect 'like terms'. As of now please do that yourself.</li>
               </ul>
               <p><b>Please report bugs to <a href="mailto:francisali692@gmail.com" class="red-text">francisali692@gmail.com</a></b></p>
               <p>Well then go on ahead and solve!</p>
+              <br/>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div id="body">
-      <div id="help" class="is-small tea-text" @click="showHelp^=1"><i class="material-icons">help_outline</i></div>
+      <div id="help" class="is-small tea-text" @click="showHelp = !showHelp"><i class="material-icons">help_outline</i></div>
       <header>
         <span class="niconne green-text whitse-text"><h4>Lin</h4></span>
         <p class="niconne green-text whitbe-text"> The Linear Equations solver</p>

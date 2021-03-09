@@ -250,10 +250,15 @@ header::before{
 }
 #help-panel-bg > div{
   width: 90%;
-  height: 90%;
+  height: 8%;
   background: white;
   border-radius: 4px;
   overflow-y: scroll;
+}
+#help-panel-bg .button{
+  width: 40px;
+  height: 40px;
+  margin: 4px;
 }
 @media screen and (min-width: 480px){
   #help-panel-bg > div{
