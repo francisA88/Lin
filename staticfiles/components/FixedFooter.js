@@ -10,7 +10,8 @@ Vue.component('fixed-footer',{
   methods:{
     showBottomSheet: ()=>{showBottomSheet()},
     addField: ()=>{vm.eqncount++},
-    removeField: ()=>{vm.eqncount--}
+    removeField: ()=>{
+      if(vm.eqncount >2) vm.eqncount--;}
   },
   template: `
     <footer class="fixed-footer">
