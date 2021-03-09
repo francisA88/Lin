@@ -10,7 +10,8 @@ var vm = new Vue({
       eqnids: new Array(...eqnIds),
       results: {
       },
-      error: ""
+      error: "",
+      showHelp: false,
     }
   },
   methods: {
@@ -74,19 +75,29 @@ function showBottomSheet() {
     document.querySelector('.bottom-sheet').classList.remove('hidden');
   })
 }
+function tryCall(func){
+  return ()=>{
+    try{
+      func();
+    }
+    catch(e){
+      vm.error = 'Unknown Error. Please check that the equations are specified correctly';
+    }
+  };
+}
+var showBottomSheet = tryCall(showBottomSheet);
 function initializeRemoveButtons() {
   eqnInputs = document.querySelectorAll('.equation-input')
   eqnInputs.forEach(function(el) {
-    el.querySelector('.button').onclick = ()=> {
+    el.querySelector('.button').addEventListener('click',(e)=> {
       console.log("Clicked")
       console.log(document.querySelectorAll('.equation-input').length)
-      if (document.querySelectorAll('.equation-input').length <= 2) {
+      if (document.querySelectorAll('.equation-input').length > 2) {
         console.log("Should stop")
-        return;
+        document.querySelector("#equations-block").removeChild(el);
       }
-      document.querySelector("#equations-block").removeChild(el);
       //console.log(vm.eqncount)
-    };
+    })
   });
 }
 document.addEventListener('DOMContentLoaded', (e)=> {

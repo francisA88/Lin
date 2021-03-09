@@ -1,8 +1,6 @@
-function showBottomheet(){
+/*function showBottomheet(){
   document.querySelector('.bottom-sheet').classList.remove('hidden');
-}
-
-
+}*/
 Vue.component('fixed-footer',{
   props:{
     'resfunc':{

@@ -236,3 +236,32 @@ header::before{
 .hidden{
   display: none;
 }
+#help-panel-bg{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #CCCA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#help-panel-bg > div{
+  width: 90%;
+  height: 90%;
+  background: white;
+  border-radius: 4px;
+  overflow-y: scroll;
+}
+@media screen and (min-width: 480px){
+  #help-panel-bg > div{
+    width: 300px;
+  }
+}
+li{
+  padding: 4px;
+}
+.is-circle{
+  border-radius: 50%;
+}
