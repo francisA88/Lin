@@ -250,7 +250,7 @@ header::before{
 }
 #help-panel-bg > div{
   width: 90%;
-  height: 8%;
+  height: 80%;
   background: white;
   border-radius: 4px;
   overflow-y: scroll;

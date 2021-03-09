@@ -20,6 +20,12 @@ var vm = new Vue({
       setTimeout(()=> {
         this.eqncount += 2
       }, 90)
+    },
+    hideHelp: function(){
+      document.querySelector('#help-panel-bg').classList.add("hidden");
+    },
+    showHelp: function(){
+      document.querySelector('#help-panel-bg').classList.remove('hidden');
     }
   }
 });

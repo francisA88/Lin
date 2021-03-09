@@ -14,9 +14,9 @@
   <body>
     {%csrf_token%}
     <script>eruda.init();</script>
-    <div id="help-panel-bg" v-if="showHelp">
+    <div id="help-panel-bg" :class="{hidden:showHelp}">
       <div>
-        <button class="button is-danger is-circle" @click='showHelp=!showHelp'><i class="material-icons">close</i></button>
+        <button class="button is-danger is-circle" @click='hideHelp()'><i class="material-icons">close</i></button>
         <div class="container">
           <h4 class="blue-grey-text">About</h4>
           <div>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div id="body">
-      <div id="help" class="is-small tea-text" @click="showHelp = !showHelp"><i class="material-icons">help_outline</i></div>
+      <div id="help" class="is-small tea-text" @click="showHelp()"><i class="material-icons">help_outline</i></div>
       <header>
         <span class="niconne green-text whitse-text"><h4>Lin</h4></span>
         <p class="niconne green-text whitbe-text"> The Linear Equations solver</p>
