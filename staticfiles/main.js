@@ -2,7 +2,7 @@ const eqnIds = [1, 2]
 isEmpty = (s)=>!Boolean(s.split(" ").join(''))
 
 //initializeRemoveButtons();
-var vm = new Vue({
+const vm = new Vue({
   el: '#body',
   data: function() {
     return {
@@ -64,46 +64,25 @@ function showBottomSheet() {
       'X-CSRFToken': csrftoken,
     },
     body: JSON.stringify({'equations':getEquations()})
-  }).then((data)=>{
-    return data.json()
+  }).then((data)=>data.json()).catch(err=>{
+    console.log("Error caught?")
+    vm.error = 'Unknown Error. Please check that the equations are specified correctly';
+    document.querySelector('.bottom-sheet').classList.remove('hidden');
   }).then((res)=>{
     //vm.results = res['solution'];
-    vm.error = res.error;
+    try{
+      vm.error = res.error;
+    }
+    catch(e){ return }
     vars = res.vars
     results = {}
     if (isEmpty(vm.error)){
       for (i=0; i<res.solution.length; i++){
-        results[vars[i]] = res.solution[i]
+        results[vars[i]] = res.solution[i];
       }
     }
-    vm.results = results
+    vm.results = results;
     document.querySelector('.bottom-sheet').classList.remove('hidden');
-  })
-}
-function tryCall(func){
-  return ()=>{
-    try{
-      func();
-    }
-    catch(e){
-      vm.error = 'Unknown Error. Please check that the equations are specified correctly';
-    }
-  };
-}
-var showBottomSheet = tryCall(showBottomSheet);
-function initializeRemoveButtons() {
-  eqnInputs = document.querySelectorAll('.equation-input')
-  eqnInputs.forEach(function(el) {
-    el.querySelector('.button').addEventListener('click',(e)=> {
-      console.log("Clicked")
-      console.log(document.querySelectorAll('.equation-input').length)
-      if (document.querySelectorAll('.equation-input').length > 2) {
-        console.log("Should stop")
-        document.querySelector("#equations-block").removeChild(el);
-      }
-      //console.log(vm.eqncount)
-    })
   });
 }
-document.addEventListener('DOMContentLoaded', (e)=> {
-  initializeRemoveButtons()});
+

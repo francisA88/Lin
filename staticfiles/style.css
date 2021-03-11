@@ -29,7 +29,6 @@
 @font-face{
   font-family: "Niconne";
   src: url('./Niconne/Niconne-Regular.ttf');
-  font-size: 1.2rem;
 }
 .sserif{
   font-family: Sans-Serif;
@@ -59,6 +58,9 @@
   height: calc(100vh - 120px);
   overflow-y: scroll;
 }
+#equations-block::-webkit-scrollbar{
+  display: none;
+}
 /*#equations-block{
   max-height: calc(100vh - 160px);
   height: calc(100vh - 160px);
@@ -74,7 +76,7 @@ header{
   justify-content: center;
   align-items: flex-start;
   background: transparent;
-  margin-_bottom: 30px;
+ /* margin-_bottom: 30px;*/
 }
 header >*{
   margin-left: 15px;
@@ -141,7 +143,6 @@ header::before{
 }
 .equation-input .input{
   max-width: 70%;
-  width_: 80%;
   height: 100%;
 }
 .equation-input .del-btn{
@@ -162,7 +163,7 @@ header::before{
 .bottom-sheet{
   width: 100vw;
   position: fixed;
-  top: calc(100vh - 460px);
+  top: calc(100vh - 460px); /*400px + 60px (height of fixed footer)*/
   left: 0;
   border-radius: 20px 20px 0 0;
   background: white;
@@ -174,6 +175,12 @@ header::before{
   /*overflow-y: scroll;*/
   z-index: 102;
   /*display: ;*/
+}
+@media screen and (max-height: 500px){
+  .bottom-sheet{
+    height: 70vh;
+    top: calc(30vh - 60px);
+  }
 }
 .bottom-sheet .btm-toggle{
   width: 100%;
@@ -201,7 +208,7 @@ header::before{
   align-items: center;
 }
 .fixed-footer{
-  z-index: 100;
+  z-index: 103;
   position: fixed;
   top: calc(100% - 60px);
   height: 60px;
@@ -233,9 +240,7 @@ header::before{
 .results li{
   padding-left: 12px;
 }
-.hidden{
-  display: none;
-}
+
 #help-panel-bg{
   width: 100vw;
   height: 100vh;
@@ -243,17 +248,22 @@ header::before{
   left: 0;
   top: 0;
   background: #CCCA;
-  display: flex;
+  /*display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center;*/
   z-index: 1000;
 }
 #help-panel-bg > div{
   width: 90%;
-  height: 80%;
+  height: 70%;
   background: white;
   border-radius: 4px;
+  margin-left: 5%;
+  margin-top: 15%;
+}
+.main-container{
   overflow-y: scroll;
+  max-height: calc(100% - 48px);
 }
 #help-panel-bg .button{
   width: 40px;
